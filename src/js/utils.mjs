@@ -21,3 +21,20 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
+export function updateCartCount() {
+  const cart = getLocalStorage('so-cart') || [];
+  const cartCount = document.querySelector('.cart-count');
+
+  if (!cartCount) {
+    return;
+  }
+
+  if (cart.length > 0) {
+    cartCount.textContent = cart.length;
+    cartCount.classList.add('show');
+  } else {
+    cartCount.textContent = '';
+    cartCount.classList.remove('show');
+  }
+}
