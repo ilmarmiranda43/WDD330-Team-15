@@ -26,10 +26,16 @@ const dataSource = new ProductData("tents");
 function addProductToCart(product) {
   const cart = getLocalStorage("so-cart") || [];
 
-  cart.push(product);
+  const existingProduct = cart.find((item) => item.Id === product.Id);
+
+  if (existingProduct) {
+    existingProduct.quantity = (existingProduct.quantity || 1) + 1;
+  } else {
+    product.quantity = 1;
+    cart.push(product);
+  }
 
   setLocalStorage("so-cart", cart);
-
   updateCartCount();
 }
 
