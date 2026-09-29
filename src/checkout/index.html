@@ -100,7 +100,8 @@
 
                 <label class="form-field">
                   <span>Zip Code</span>
-                  <input type="text" name="zip" inputmode="numeric" autocomplete="postal-code" required />
+                  <input type="text" name="zip" required minlength="5" maxlength="9" inputmode="numeric"
+                    autocomplete="postal-code" required />
                 </label>
               </div>
             </fieldset>
@@ -113,8 +114,8 @@
 
               <label class="form-field">
                 <span>Credit Card Number</span>
-                <input type="text" name="cardNumber" inputmode="numeric" autocomplete="cc-number"
-                  placeholder="1234 1234 1234 1234" required />
+                <input type="text" name="cardNumber" required minlength="16" maxlength="16" inputmode="numeric"
+                  autocomplete="cc-number" placeholder="1234 1234 1234 1234" required />
               </label>
 
               <div class="form-grid form-grid--payment">
@@ -126,7 +127,8 @@
 
                 <label class="form-field">
                   <span>Security Code</span>
-                  <input type="text" name="code" inputmode="numeric" autocomplete="cc-csc" placeholder="123" required />
+                  <input type="text" name="code" required minlength="3" maxlength="3" inputmode="numeric"
+                    autocomplete="cc-csc" placeholder="123" required />
                 </label>
               </div>
             </fieldset>
