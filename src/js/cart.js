@@ -35,4 +35,13 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
+function clearCart() {
+  localStorage.removeItem("so-cart");
+  renderCartContents();
+}
+
+const clearCartButton = document.querySelector("#clear-cart");
+
+clearCartButton.addEventListener("click", clearCart);
+
 renderCartContents();
