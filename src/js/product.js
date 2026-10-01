@@ -23,6 +23,20 @@ import ExternalServices from "./ExternalServices.mjs";
 
 const dataSource = new ExternalServices("tents");
 
+function animateCartIcon() {
+  const cartIcon = document.querySelector(".cart");
+
+  if (!cartIcon) return;
+
+  cartIcon.classList.remove("cart-animate");
+
+  // Forces the browser to restart the animation
+  void cartIcon.offsetWidth;
+
+  cartIcon.classList.add("cart-animate");
+}
+
+
 function addProductToCart(product) {
   const cart = getLocalStorage("so-cart") || [];
 
@@ -37,6 +51,7 @@ function addProductToCart(product) {
 
   setLocalStorage("so-cart", cart);
   updateCartCount();
+  animateCartIcon();
 }
 
 // add to cart button event handler
